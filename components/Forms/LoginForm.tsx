@@ -14,8 +14,8 @@ const [toggleIcon,setToggleIcon]=useState(false)
 
  
   return (
-   <div className="grid md:grid-cols-2 grid-cols-1 md:m-10 mx-2 px-2 my-20 w-[70%] md:mx-auto shadow-md overflow-hidden rounded-md">
-     <div className="py-8  w-full  px-8  flex flex-col gap-2">
+   <div className="grid md:grid-cols-2 w-full grid-cols-1 md:m-10 mx-2 px-2 my-20 md:w-[70%] md:mx-auto shadow-md overflow-hidden rounded-md">
+     <div className="py-8    px-8  flex flex-col gap-2">
                     <h2 className='font-bold'>Login Your Account</h2>
                     <p>Welcome back, fill in the details to Login</p>
                     

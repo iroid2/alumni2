@@ -96,7 +96,7 @@ export default function RegisterForm({role}:{role:string}) {
             </p>  
           </div>  
         </div>  
-        <div className="">  
+        <div className="hidden md:block">  
           <Image src='https://img.freepik.com/free-vector/app-development-concept-with-flat-deisng_23-2147852844.jpg' alt='' className='w-full h-full' width={400} height={400}/>  
         </div>  
       </div>  
