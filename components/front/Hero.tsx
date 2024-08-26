@@ -1,15 +1,30 @@
 import React from 'react'
 import Meteors from '../magicui/meteors'
+import AnimatedGradientText from '../magicui/animated-gradient-text'
+import { ChevronRight } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export default function Hero() {
   return (
-    <section className="relative py-12 sm:py-16 lg:pt-20 xl:pb-0 bg-black ">
-          
+    <section className="relative py-12 sm:py-16  lg:pt-[12rem] pt-[15rem]  xl:pb-0 bg-black z-2 ">
         <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-3xl mx-auto text-center">
-                <p className="inline-flex px-4 py-2 text-base text-gray-900 border border-gray-200 rounded-full text-white">Made by Leticia, for Kyu </p>
+            <div className=" flex   items-center justify-center ">
+      <AnimatedGradientText>
+        🎉 <hr className="mx-2 rounded-full h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
+        <span
+          className={cn(
+            `inline animate-gradient  text-2xl px-4 py-2 bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+          )}
+        >
+          Made by Leticia, for Kyu
+        </span>
+        <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+      </AnimatedGradientText>
+    </div>
+                 
                 <Meteors number={30} />
-                <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-300 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj ">Building Bridges Within Your Alumni Community</h1>
+                <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-300 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj ">Building Bridges Within <span className='inline animate-gradient   px-4 py-2 bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent'>Kyu Alumni</span>  Community</h1>
 
                 <p className="max-w-md mx-auto mt-6 text-base leading-7 text-white  font-inter">Networking Opportunities: Connect with fellow alumni to share insights, collaborate on projects, and explore career advancements.</p>
 

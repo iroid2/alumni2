@@ -14,7 +14,7 @@ const [toggleIcon,setToggleIcon]=useState(false)
 
  
   return (
-   <div className="grid grid-cols-2 m-10 w-[70%] mx-auto shadow-md overflow-hidden rounded-md">
+   <div className="grid md:grid-cols-2 grid-cols-1 md:m-10 mx-2 px-2 my-20 w-[70%] md:mx-auto shadow-md overflow-hidden rounded-md">
      <div className="py-8  w-full  px-8  flex flex-col gap-2">
                     <h2 className='font-bold'>Login Your Account</h2>
                     <p>Welcome back, fill in the details to Login</p>
@@ -59,7 +59,7 @@ const [toggleIcon,setToggleIcon]=useState(false)
     
   </div>
                 </div>
-                <div className="">
+                <div className="hidden md:block w-full">
            <Image src={'https://img.freepik.com/free-vector/app-development-concept-with-flat-deisng_23-2147852844.jpg?t=st=1724271792~exp=1724275392~hmac=112335d0eb4136e71d05274f049bf2490b5b5ed7eb82e7ae27c12beb3608afee&w=740'} alt='' className='w-full h-full' width={400} height={400}/>
         </div>
    </div>

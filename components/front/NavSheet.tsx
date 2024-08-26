@@ -10,7 +10,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-
+ 
+import Link from "next/link"
+import NavLinks from "./NavLinks"
+ 
 export function NavSheet() {
   return (
     <Sheet>
@@ -23,16 +26,25 @@ export function NavSheet() {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
+          <SheetTitle>Alumn</SheetTitle>
+          
+          <NavLinks/>
+              
         </SheetHeader>
        
         <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
+        <div className="  text-md flex-col ">
+                <a href="/login" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none  hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Login </a>
+
+                <a
+                    href="/register"
+                    title=""
+                    className="px-5 py-2 text-base font-semibold leading-7 text-gray-900 transition-all duration-200 bg-transparent border border-gray-900 rounded-xl font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-900 hover:text-white focus:bg-gray-900 focus:text-white"
+                    role="button"
+                >
+                    Join community
+                </a>
+            </div>
         </SheetFooter>
       </SheetContent>
     </Sheet>

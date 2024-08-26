@@ -59,6 +59,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
+        },
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)"  },
            
@@ -80,6 +85,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         meteor: "meteor 5s linear infinite",
+        gradient: "gradient 8s linear infinite",
       },
       
     },
