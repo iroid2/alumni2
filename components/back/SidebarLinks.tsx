@@ -56,7 +56,7 @@ export default function SidebarLinks() {
     {
       dashboardRoutes.map((route,i)=>{
         const Icon=route.icon
-        return <TooltipProvider>
+        return <TooltipProvider key={i}>
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
