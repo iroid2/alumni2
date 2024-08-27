@@ -1,8 +1,14 @@
 import Header from '@/components/back/Header'
 import Sidebar from '@/components/back/Sidebar'
+import { authOptions } from '@/lib/authOptions'
+import { getServerSession } from 'next-auth'
 import React, { ReactNode } from 'react'
 
-export default function layout({children}:{children:ReactNode}) {
+export default async function layout({children}:{children:ReactNode}) {
+  // const session = await getServerSession(authOptions)
+  // const user = session?.user
+
+  // console.log(`Session User`, session?.user)
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
     <Sidebar/>

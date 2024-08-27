@@ -1,18 +1,49 @@
 'use client'
-import { Eye, EyeOff, Lock, Mail } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import TextInput from '../global/Textinput'
 import SubmitButton from '../global/SubmitButton'
+import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
+import { signIn } from "next-auth/react";
+
+export type registerProps={
+  email:string
+  password:string  
+}
 
 export default function LoginForm() {
-  const {register,handleSubmit,formState:{errors}}=useForm()
+  const {register,handleSubmit,reset,formState:{errors}}=useForm<registerProps>()
   const [loading,setLoading]=useState(false)
 const [toggleIcon,setToggleIcon]=useState(false)
 
+const router = useRouter()
  
+async function onSubmit(data: registerProps) {
+  setLoading(true);
+  try {
+    console.log("Attempting to sign in with credentials:", data);
+    const loginData = await signIn("credentials", {
+      ...data,
+      redirect: false,
+    });
+    console.log("SignIn response:", loginData);
+    if (loginData?.error) {
+      toast.error("Sign-in error: Check your credentials");
+    } else {
+      reset();
+      toast.success("Login Successful");
+      router.push("/dashboard");
+    }
+  } catch (error) {
+    console.error("Network Error:", error);
+    toast.error("Its seems something is wrong with your Network");
+  }finally{
+    setLoading(false)
+  }
+}  
   return (
    <div className="grid md:grid-cols-2 w-full grid-cols-1 md:m-10 mx-2 px-2 my-20 md:w-[70%] md:mx-auto shadow-md overflow-hidden rounded-md">
      <div className="py-8    px-8  flex flex-col gap-2">
@@ -25,7 +56,7 @@ const [toggleIcon,setToggleIcon]=useState(false)
  
 </div>
                     <div className="">
-            <form className=" "  >   
+            <form className=" "  onSubmit={handleSubmit(onSubmit)}>   
             <div className="grid gap-3 pt-3">
     <TextInput
       register={register}
@@ -40,6 +71,7 @@ const [toggleIcon,setToggleIcon]=useState(false)
       errors={errors}
       label="Password"
       name="password"
+      type='password'
     />
   </div>
        

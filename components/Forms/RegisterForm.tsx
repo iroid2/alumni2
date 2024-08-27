@@ -1,11 +1,14 @@
 'use client';  
 import React, { useState } from 'react';  
 import { useForm } from 'react-hook-form';  
+import toast, { Toaster } from 'react-hot-toast';
 import TextInput from '../global/Textinput';  
 import SubmitButton from '../global/SubmitButton';  
 import Image from 'next/image';  
 import Link from 'next/link';  
-import createUser from '@/actions/User';
+ 
+import { useRouter } from 'next/navigation';
+import { createUser } from '@/actions/users';
 
 export type registerProps={
   email:string
@@ -13,29 +16,47 @@ export type registerProps={
   gender:string
   maritalStatus:string
   password:string
+  token: any
 role:any  
 }
 
  
 
-export default function RegisterForm({role}:{role:string}) {  
+export default function RegisterForm({role}:{role?:string}) {  
   const { register, handleSubmit, reset,formState: { errors } } = useForm<registerProps>();  
   const [loading, setLoading] = useState(false);  
+  const router=useRouter()
 
   async function onSubmit(data:registerProps) {  
-    console.log(data);  
+    // console.log(data);  
     data.role=role
-    reset()
+    setLoading(true)
     try {
-      const res=await createUser(data)
-    } catch (error) {
+      const res =await createUser(data)
+      if(res.status === 201){
+        reset()
+    router.push(`/verify-account/${res.data?.id}`)
+    toast.success('User Created SuccessFully !')
+      } else if (res.status === 404){
+        toast.error('Email Already Exists!')
+
+      }
       
+    } catch (error) {
+      console.log(`Error`,error)
+    }finally{
+      setLoading(false)
     }
   }  
 
   return (  
     <div className='p-5'>  
       <div className="grid md:grid-cols-2 grid-cols-1 md:m-20 mx-2 md:px-0 px-8 my-10 md:w-[80%] w-full md:mx-auto shadow-md overflow-hidden rounded-md">  
+      <Toaster
+  position="top-center"
+  
+  reverseOrder={false}
+/>
         <div className="py-8 w-full md:px-8 flex flex-col gap-2">  
           <h2 className='font-bold'>Login Your Account</h2>  
           <p>Welcome back, fill in the details to Login</p>  

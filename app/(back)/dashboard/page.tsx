@@ -1,15 +1,18 @@
- 
-import LiftCard from '@/components/back/liftComponents/LiftCard'
-import Main from '@/components/back/Main'
 import { Card } from '@/components/ui/card'
+import { authOptions } from '@/lib/authOptions'
+import { getServerSession } from 'next-auth'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+const session = await getServerSession(authOptions)
+
+const user = session?.user
   return (
     <div>
       <div className="flex w-full justify-center bg-purple-600  items-center h-[100px]">
-        <h2 className='text-white md:text-3xl text-2xl font-extrabold'>Welcome Admin iroid </h2>
+        <h2 className='text-white md:text-3xl text-2xl font-extrabold'>Welcome Admin {user?.name}  </h2>
       </div>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-5 m-4">
         <Card className='p-4 user'>

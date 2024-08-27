@@ -33,7 +33,7 @@ model User {
   accounts      Account[]
    
   isVerfied     Boolean   @default(false)
-  token         Int
+  token         Int       @default(1442678191)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
