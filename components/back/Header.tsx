@@ -63,7 +63,7 @@ export default function Header() {
                 </Link>
                 <Link
                   href="#"
-                  className="flex items-center gap-5 px-2.3 text-muted-foreground hover:text-foreground"
+                  className="flex items-center gap-4 px-2.3 text-muted-foreground hover:text-foreground"
                 >
                   <Home className="h-5 w-5" />
                   Dashboards
