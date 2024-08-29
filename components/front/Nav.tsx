@@ -15,8 +15,8 @@ export default function Nav() {
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between">
             <div className="flex-shrink-0">
-                <a href="#" title="" className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
-                    <img className="w-auto h-8" src="https://d33wubrfki0l68.cloudfront.net/682a555ec15382f2c6e7457ca1ef48d8dbb179ac/f8cd3/images/logo.svg" alt="" />
+                <a href="#" title="" className="flex items-center     rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
+                   <span>alu </span> <span className='font-extrabold bg-white text-black text-2xl'>Mni</span> 
                 </a>
             </div>
 

@@ -6,8 +6,9 @@ export default function NavLinks() {
       
     { name: "About", path: "/about" },
     { name: "Alumni Directory", path: "/alumni-directory" },
-    { name: "Events", path: "/events" },
-    { name: "Job Board", path: "/jobs" },
+    // { name: "Alumni Details  ", path: "/alumuni-details" },
+    // { name: "Events", path: "/events" },
+    // { name: "Job Board", path: "/jobs" },
     // { name: "Alumni Stories", path: "/stories" },
     { name: "Contact", path: "/contact" },
 
