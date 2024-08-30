@@ -7,6 +7,11 @@ import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';  
 import Typography from '@mui/material/Typography';  
 import RegisterForm from '@/components/Forms/RegisterForm';
+ 
+import MultiStepForm from '@/components/MultiStepForm';
+ 
+ 
+ 
 
 const steps = [  
   'Input Your Basic Information',  
@@ -74,7 +79,13 @@ export default function Page() {
   };  
 
   return (  
-    <div className="my-[6rem] w-[80%] mx-auto">  
+    <div className="my-[6rem] w-[80%] mx-auto"> 
+   
+      {/* <h1>Redux Counter, Add to Cart, and Multi-Step Form Example</h1> */}
+      {/* <Counter /> */}
+      {/* <Products /> */}
+      {/* <MultiStepForm /> */}
+     
       <Box sx={{ width: '100%' }}>  
         <Stepper nonLinear activeStep={activeStep}>  
           {steps.map((label, index) => (  

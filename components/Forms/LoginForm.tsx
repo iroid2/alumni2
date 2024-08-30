@@ -9,12 +9,13 @@ import SubmitButton from '../global/SubmitButton'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
 import { signIn } from "next-auth/react";
+import { getServerSession } from 'next-auth'
 
 export type registerProps={
   email:string
   password:string  
 }
-
+import { authOptions } from '@/lib/authOptions'
 export default function LoginForm() {
   const {register,handleSubmit,reset,formState:{errors}}=useForm<registerProps>()
   const [loading,setLoading]=useState(false)
@@ -23,6 +24,9 @@ const [toggleIcon,setToggleIcon]=useState(false)
 const router = useRouter()
  
 async function onSubmit(data: registerProps) {
+//   const session = await getServerSession(authOptions)
+
+// const user = session?.user
   setLoading(true);
   try {
     console.log("Attempting to sign in with credentials:", data);
@@ -36,7 +40,7 @@ async function onSubmit(data: registerProps) {
     } else {
       reset();
       toast.success("Login Successful");
-      router.push("/dashboard");
+      // router.push(`/moreInfor/${user?.id}`);
     }
   } catch (error) {
     console.error("Network Error:", error);
