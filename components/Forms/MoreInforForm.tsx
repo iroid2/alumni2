@@ -29,7 +29,7 @@ type FormData = {
 };
 
 
-export default async function MoreInfoForm() {
+export default   function MoreInfoForm() {
   
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
   const [step, setStep] = useState(1);
