@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import 'react-phone-number-input/style.css';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+// import { useForm, SubmitHandler } from 'react-hook-form';
 import SubmitButton from '../global/SubmitButton';
 import toast, { Toaster } from 'react-hot-toast';
 import PhoneInput from 'react-phone-number-input';
@@ -49,7 +50,9 @@ type FormData = {
 };
 
 export default function MoreInfoForm() {
-  const { register, handleSubmit, watch, formState: { errors, isValid }, setValue } = useForm<FormData>({ mode: 'onChange' });
+  const { register, handleSubmit, watch, formState: { errors, isValid }, setValue, control } = useForm<FormData>({ mode: 'onChange' });
+
+  
   const [step, setStep] = useState(1);
   const [submissionStatus, setSubmissionStatus] = useState<'submitted' | null>(null);
   const [customMajor, setCustomMajor] = useState('');
@@ -270,11 +273,19 @@ export default function MoreInfoForm() {
               </div>
               <div className="grid gap-3 pt-3">
                 <label htmlFor="phoneNumber">Phone Number</label>
-                <PhoneInput
-                  {...register('phoneNumber')}
-                  defaultCountry="UG"
-                  id="phoneNumber"
-                />
+                <Controller
+  name="phoneNumber"
+  control={control}
+  defaultValue=""
+  render={({ field }) => (
+    <PhoneInput
+      {...field}
+      defaultCountry="UG"
+      id="phoneNumber"
+      onChange={(value) => field.onChange(value)}
+    />
+  )}
+/>
               </div>
               <div className="grid gap-3 pt-3">
                 <TextInput

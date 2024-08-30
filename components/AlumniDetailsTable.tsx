@@ -77,29 +77,7 @@ export default function AlumniTableDetails() {
               </TableCell>
                
             </TableRow>
-            <TableRow>
-              <TableCell className="  sm:table-cell">
-                <Image
-                  alt="Product image"
-                  className="aspect-square rounded-md object-cover"
-                  height="64"
-                  src="https://img.freepik.com/premium-photo/darkskinned-woman-with-afro-haircut-gazes-open-space-great-promotions_671421-215.jpg?w=740"
-                  width="64"
-                />
-              </TableCell>
-              <TableCell className="font-medium">
-                Gamer Gear Pro Controller
-              </TableCell>
-              <TableCell>
-                <Badge variant="outline">2012</Badge>
-              </TableCell>
-              <TableCell className="  md:table-cell">Engneering</TableCell>
-              <TableCell className="hidden md:table-cell">Single</TableCell>
-              <TableCell className="hidden md:table-cell">
-              Catholic
-              </TableCell>
-               
-            </TableRow>
+            
           </TableBody>
         </Table>
       </CardContent>
