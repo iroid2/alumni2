@@ -17,59 +17,40 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import UserCard from "./UserCard"
+import { Search } from "lucide-react"
 
 export function AluminiTabs() {
   return (
     <Tabs defaultValue="account" className="w-full">
-      <TabsList className="grid w-full grid-cols-3">
+     <div className="flex w-full justify-between ">
+     <TabsList className=" flex ">
         <TabsTrigger value="employed">Employed</TabsTrigger>
         <TabsTrigger value="selfemployed">self-emplyed</TabsTrigger>
         <TabsTrigger value="password">Unemployed</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
+      <div className="flex items-center p-3 gap-4">
+      <button className="">expand</button>
+        <div className="relative">
+          <Search className="absolute top-[35%] h-4 "/>
+        <Input placeholder="search for alumni" className="px-6"/>
+        </div>
+      </div>
+     </div>
+      <TabsContent value="employed">
+         <UserCard/>
+         <UserCard/>
+      </TabsContent>
+      <TabsContent value="selfemployed">
         <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
+        <UserCard/>
+        <UserCard/>
         </Card>
       </TabsContent>
       <TabsContent value="password">
         <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
+        <UserCard/>
+        <UserCard/>
         </Card>
       </TabsContent>
     </Tabs>

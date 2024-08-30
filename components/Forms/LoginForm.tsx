@@ -27,6 +27,7 @@ async function onSubmit(data: registerProps) {
 //   const session = await getServerSession(authOptions)
 
 // const user = session?.user
+// console.log(user)
   setLoading(true);
   try {
     console.log("Attempting to sign in with credentials:", data);
